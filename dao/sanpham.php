@@ -42,9 +42,9 @@ function get_dssp($kyw,$iddm,$limi){
         $sql .=" AND iddm=".$iddm;
     }
     if($kyw!=""){
-        $sql .=" AND name like '%'".$kyw."%'";
+        $sql .=" AND name like '%".$kyw."%'";
     }
-    
+
     $sql .= " ORDER BY id DESC limit ".$limi;
     return pdo_query($sql);
 }
@@ -55,14 +55,15 @@ function get_sanphamchitiet($id){
 }
 
 function get_dssp_lienquan($iddm,$id,$limi){
-    $sql = "SELECT * FROM sanpham WHERE iddm=? AND id<>?  ORDER BY id DESC limit ".$limi;
+    $sql = "SELECT * FROM sanpham WHERE iddm=? AND id<>? ORDER BY id DESC limit ".$limi;
     return pdo_query($sql,$iddm,$id);
 }
- 
+
 function get_iddm($id){
     $sql = "SELECT iddm FROM sanpham WHERE id=?";
     return pdo_query_value($sql,$id);
 }
+
 function showsp($dssp){
     $html_dssp='';
     foreach ($dssp as $sp) {
@@ -79,13 +80,13 @@ function showsp($dssp){
                             </a>
                             <span class="price">'.$price.' đ</span>
                             <form action="index.php?pg=addcart" method="post">
+                            <input type="hidden" name="idpro" value="'.$id.'">
                                 <input type="hidden" name="name" value="'.$name.'">
                                 <input type="hidden" name="img" value="'.$img.'">
                                 <input type="hidden" name="price" value="'.$price.'">
                                 <input type="hidden" name="soluong" value="1">
                                 <button type="submit" name="addcart">Đặt hàng</button>
                             </form>
-                        
                             
                         </div>';
     }

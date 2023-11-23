@@ -55,9 +55,11 @@ function showdm($dsdm){
     return $html_dm;
 }
 function get_name_dm($id){
-    $sql = "SELECT name FROM danhmuc WHERE id=?";
-    return pdo_query_value($sql,$id);
+    $sql = "SELECT name FROM danhmuc WHERE id=".$id;
+    $kq=pdo_query_one($sql);
+    return $kq["name"];
 }
+
 // /**
 //  * Truy vấn một loại theo mã
 //  * @param int $ma_danhmuc là mã loại cần truy vấn

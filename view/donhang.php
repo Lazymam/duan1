@@ -1,33 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coffe House</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-
-<body>
-    <div class="containerfull padd20">
+<section class="containerfull">
         <div class="container">
-            <div class="logo col2"><img src="images/logo-bahozone-03-icon-h80.png" height="40" alt=""></div>
-            <div class="menu col8">
-                <a href="#">TRANG CHỦ</a>
-                <a href="#">GIỚI THIỆU</a>
-                <a href="#">SẢN PHẨM</a>
-                <a href="#">DỊCH VỤ</a>
-                <a href="#">LIÊN HỆ</a>
-            </div>
-        </div>
-    </div>
-    <div class="containerfull">
-        <div class="bgbanner">ĐƠN HÀNG</div>
-    </div>
-
-    <section class="containerfull">
-        <div class="container">
+            <form action="index.php?pg=donhangsubmit" method="post">
             <div class="col9 viewcart">
                 <div class="ttdathang">
                     <h2>Thông tin người đặt hàng</h2>
@@ -53,13 +26,13 @@
                     <h2>Thông tin người nhận hàng</h2>
                   
                       <label for="hoten"><b>Họ và tên</b></label>
-                      <input type="text" placeholder="Nhập họ tên đầy đủ" name="hoten" id="hoten" required>
+                      <input type="text" placeholder="Nhập họ tên đầy đủ" name="hoten_nguoinhan" id="hoten_nguoinhan" >
                   
                       <label for="diachi"><b>Địa chỉ</b></label>
-                      <input type="text" placeholder="Nhập địa chỉ" name="diachi" id="diachi" required>
+                      <input type="text" placeholder="Nhập địa chỉ" name="diachi_nguoinhan" id="diachi_nguoinhan" >
                   
                       <label for="dienthoai"><b>Điện thoại</b></label>
-                      <input type="text" placeholder="Nhập điện thoại" name="dienthoai" id="dienthoai" required>
+                      <input type="text" placeholder="Nhập điện thoại" name="dienthoai_nguoinhan" id="dienthoai_nguoinhan" >
                 </div>
                       
                   
@@ -85,10 +58,10 @@
             <div class="pttt">
                 <div class="boxcart">
                 <h3>Phương thức thanh toán: </h3>
-                <input type="radio" name="cod" id="" checked> Tiền mặt<br>
-                <input type="radio" name="vidienthu" id=""> Ví điện tử<br>
-                <input type="radio" name="chuyenkhoan" id=""> Chuyển khoản<br>
-                <input type="radio" name="thanhtoanonline" id=""> Thanh toán online<br>
+                <input type="radio" name="pttt" value="1" id="" checked> Tiền mặt<br>
+                <input type="radio" name="pttt" value="2" id=""> Ví điện tử<br>
+                <input type="radio" name="pttt" value="3" id=""> Chuyển khoản<br>
+                <input type="radio" name="pttt" value="4" id=""> Thanh toán online<br>
                 </div>
             </div>
             <div class="total">
@@ -96,19 +69,12 @@
                     <h3>Tổng thanh toán: 1000000</h3>
                 </div>
             </div>
-            <button>Thanh toán</button>
+            <button type="submit" name="donhangsubmit" style="cursor:pointer">Thanh toán</button>
         </div>
-
+        </form>
 
         </div>
     </section>
-
-
-
-
-    <footer class="containerfull padd50">
-        Copyright&copy;2023. MSSV + Tên SV
-    </footer>
 
     <script>
         var ttnhanhang=document.getElementById("ttnhanhang");
@@ -123,7 +89,3 @@
         
 
     </script>
-
-</body>
-
-</html>

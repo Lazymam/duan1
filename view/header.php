@@ -1,8 +1,9 @@
 <?php
-    if(isset($_SESSION['s_user'])&&(count($_SESSION)>0)){
+    if(isset($_SESSION['s_user'])&&(count($_SESSION['s_user'])>0)){
         extract($_SESSION['s_user']);
         $html_account='<a href="index.php?pg=myaccount">'.$username.'</a>
         <a href="index.php?pg=logout">Thoát</a>';
+
     }else{
         $html_account='<a href="index.php?pg=dangky">ĐĂNG KÝ</a>
         <a href="index.php?pg=dangnhap">ĐĂNG NHẬP</a>';
@@ -23,22 +24,25 @@
 <body>
     <div class="containerfull padd20">
         <div class="container">
-            <div class="logo col2"><img src="images/Không nền.png" height="40" alt=""></div>
+            <div class="logo col2"><img src="layout/images/logo-bahozone-03-icon-h80.png" height="40" alt=""></div>
             <div class="menu col8">
                 <div class="col3">
-                <form action="index.php?pg=sanpham" method="post" >
-                    <input type="text" name="kyw" id="" placeholder="Nhập từ khóa tìm kiếm theo tên">
-                    <input type="submit" name="timkiem" value="Tìm kiếm">
-                </form>
+                    <form action="index.php?pg=sanpham" method="post">
+                        <input type="text" name="kyw" id="" placeholder="Nhập từ khóa tìm kiếm">
+                        <input type="submit" name="timkiem" value="Tìm kiếm">
+                    </form>
                 </div>
                 <div class="col9">
-                <a href="index.php">TRANG CHỦ</a>
-                <!-- <a href="index.php?pg=gioithieu">GIỚI THIỆU</a> -->
-                <a href="index.php?pg=sanpham">SẢN PHẨM</a>
-                <!-- <a href="index.php?pg=dichvu">DỊCH VỤ</a>
-                <a href="index.php?pg=lienhe">LIÊN HỆ</a> -->
-                <?=$html_account;?>
+                    <a href="index.php">TRANG CHỦ</a>
+                    <!-- <a href="index.php?pg=gioithieu">GIỚI THIỆU</a> -->
+                    <a href="index.php?pg=sanpham">SẢN PHẨM</a>
+                    <!-- <a href="index.php?pg=dichvu">DỊCH VỤ</a>
+                    <a href="index.php?pg=lienhe">LIÊN HỆ</a> -->
+                    
+                    <?=$html_account;?>
                 </div>
+                
+                
             </div>
         </div>
     </div>

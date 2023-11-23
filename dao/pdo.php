@@ -3,7 +3,7 @@
  * Mở kết nối đến CSDL sử dụng PDO
  */
 function pdo_get_connection(){
-    $dburl = "mysql:host=localhost;dbname=coffee;charset=utf8";
+    $dburl = "mysql:host=localhost;dbname=coffee1;charset=utf8";
     $username = 'root';
     $password = '';
 
@@ -31,6 +31,37 @@ function pdo_execute($sql){
         unset($conn);
     }
 }
+function pdo_execute_id($sql){
+    $sql_args = array_slice(func_get_args(), 1);
+    try{
+        $conn = pdo_get_connection();
+        $stmt = $conn->prepare($sql);
+        $stmt->execute($sql_args);
+        return $conn-> lastInsertId();
+    }
+    catch(PDOException $e){
+        throw $e;
+    }
+    finally{
+        unset($conn);
+    }
+}
+function pdo_execute_reid($sql){
+    $sql_args = array_slice(func_get_args(), 1);
+    try{
+        $conn = pdo_get_connection();
+        $stmt = $conn->prepare($sql);
+        $stmt->execute($sql_args);
+        return $conn-> lastInsertId();
+    }
+    catch(PDOException $e){
+        throw $e;
+    }
+    finally{
+        unset($conn);
+    }
+}
+
 /**
  * Thực thi câu lệnh sql truy vấn dữ liệu (SELECT)
  * @param string $sql câu lệnh sql
